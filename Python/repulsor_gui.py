@@ -1,6 +1,3 @@
-# repulsor_gui_final_v2.py
-# SISTEMA DINÁMICO REPULSOR - Versión final (ajustes adicionales)
-# Autor: Implementación para Alejo
 # Requisitos: Python 3 (tkinter incluido)
 
 import random
