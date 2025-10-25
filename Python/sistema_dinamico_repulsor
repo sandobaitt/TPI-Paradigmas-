@@ -1,0 +1,206 @@
+# ===============================================
+# SISTEMA DINÁMICO REPULSOR - Versión Interactiva POO
+# ===============================================
+# Autor: Alejo Acosta
+# Lenguaje: Python 3
+# Descripción:
+# Juego para dos jugadores sobre un tablero con flechas.
+# Incluye dos mini-juegos para definir quién elige el tablero y quién empieza.
+# Cada turno se avanza solo al presionar ENTER.
+
+import random
+
+# -------------------------------
+# Clase Casilla
+# -------------------------------
+class Casilla:
+    SIMBOLOS = ['^', '>', 'v', '<']  # 0=arriba,1=derecha,2=abajo,3=izquierda
+
+    def __init__(self):
+        self.direccion = random.randint(0, 3)
+
+    def rotar(self):
+        """Rota la flecha 90° en sentido horario."""
+        self.direccion = (self.direccion + 1) % 4
+
+    def obtener_simbolo(self):
+        return Casilla.SIMBOLOS[self.direccion]
+
+# -------------------------------
+# Clase Tablero
+# -------------------------------
+class Tablero:
+    DELTAS = [(-1, 0), (0, 1), (1, 0), (0, -1)]  # ↑ → ↓ ←
+
+    def __init__(self, filas, columnas):
+        self.filas = filas
+        self.columnas = columnas
+        self.casillas = [[Casilla() for _ in range(columnas)] for _ in range(filas)]
+
+    def imprimir(self, pos1=None, pos2=None):
+        for i in range(self.filas):
+            fila = []
+            for j in range(self.columnas):
+                if pos1 == (i, j) and pos2 == (i, j):
+                    fila.append('X')
+                elif pos1 == (i, j):
+                    fila.append('1')
+                elif pos2 == (i, j):
+                    fila.append('2')
+                else:
+                    fila.append(self.casillas[i][j].obtener_simbolo())
+            print(' '.join(fila))
+        print()
+
+    def mover_desde(self, pos):
+        i, j = pos
+        casilla = self.casillas[i][j]
+        di, dj = Tablero.DELTAS[casilla.direccion]
+        casilla.rotar()
+        nueva = (i + di, j + dj)
+        if not self.dentro_de_limites(nueva):
+            return None
+        return nueva
+
+    def dentro_de_limites(self, pos):
+        i, j = pos
+        return 0 <= i < self.filas and 0 <= j < self.columnas
+
+# -------------------------------
+# Clase Jugador
+# -------------------------------
+class Jugador:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.posicion = None
+        self.pasos = 0
+
+    def elegir_posicion(self, filas, columnas):
+        while True:
+            try:
+                fila = int(input(f"{self.nombre}, ingrese la fila inicial (0-{filas-1}): "))
+                col = int(input(f"{self.nombre}, ingrese la columna inicial (0-{columnas-1}): "))
+                if 0 <= fila < filas and 0 <= col < columnas:
+                    self.posicion = (fila, col)
+                    break
+                else:
+                    print("⚠️ Posición fuera del tablero.")
+            except ValueError:
+                print("⚠️ Ingrese números válidos.")
+
+    def elegir_numero(self):
+        while True:
+            try:
+                num = int(input(f"{self.nombre}, elija un número entre 1 y 100: "))
+                if 1 <= num <= 100:
+                    return num
+                print("⚠️ Debe estar entre 1 y 100.")
+            except ValueError:
+                print("⚠️ Ingrese un número válido.")
+
+    def mover(self, tablero):
+        nueva_pos = tablero.mover_desde(self.posicion)
+        if nueva_pos is None:
+            return False
+        self.posicion = nueva_pos
+        self.pasos += 1
+        return True
+
+# -------------------------------
+# Clase JuegoRepulsor
+# -------------------------------
+class JuegoRepulsor:
+    def __init__(self):
+        print("=== SISTEMA DINÁMICO REPULSOR ===")
+        self.jugador1 = Jugador(input("Ingrese el nombre del Jugador 1: "))
+        self.jugador2 = Jugador(input("Ingrese el nombre del Jugador 2: "))
+        self.tablero = None
+        self.turno_actual = None
+
+    def mini_juego_numero(self, descripcion):
+        print(f"\n🎲 {descripcion} 🎲")
+        num1 = self.jugador1.elegir_numero()
+        num2 = self.jugador2.elegir_numero()
+        numero_secreto = random.randint(1, 100)
+        print(f"Número secreto generado: {numero_secreto}")
+        dif1 = abs(num1 - numero_secreto)
+        dif2 = abs(num2 - numero_secreto)
+        if dif1 < dif2:
+            ganador = self.jugador1
+        elif dif2 < dif1:
+            ganador = self.jugador2
+        else:
+            ganador = random.choice([self.jugador1, self.jugador2])
+            print("Empate, se elige al azar el ganador del mini-juego.")
+        print(f"🏆 {ganador.nombre} gana el mini-juego.\n")
+        return ganador
+
+    def elegir_tablero(self, ganador):
+        print(f"{ganador.nombre}, elija el tamaño del tablero:")
+        print("1 - 8x8")
+        print("2 - 10x10")
+        while True:
+            opcion = input("Ingrese 1 o 2: ")
+            if opcion == '1':
+                self.tablero = Tablero(8, 8)
+                print("Se seleccionó tablero 8x8.\n")
+                break
+            elif opcion == '2':
+                self.tablero = Tablero(10, 10)
+                print("Se seleccionó tablero 10x10.\n")
+                break
+            else:
+                print("⚠️ Opción inválida.")
+
+    def definir_turno(self):
+        ganador = self.mini_juego_numero("Mini-juego para decidir quién empieza primero")
+        self.turno_actual = ganador
+        print(f"{self.turno_actual.nombre} comenzará el juego principal.\n")
+
+    def elegir_posiciones_iniciales(self):
+        print("Elección de posiciones iniciales:")
+        # el jugador que tiene el turno elige primero
+        self.turno_actual.elegir_posicion(self.tablero.filas, self.tablero.columnas)
+        otro = self.jugador1 if self.turno_actual == self.jugador2 else self.jugador2
+        otro.elegir_posicion(self.tablero.filas, self.tablero.columnas)
+
+    def alternar_turno(self):
+        self.turno_actual = self.jugador1 if self.turno_actual == self.jugador2 else self.jugador2
+
+    def jugar(self):
+        # Mini-juego 1: elegir tablero
+        ganador_tablero = self.mini_juego_numero("Mini-juego para decidir quién elige el tablero")
+        self.elegir_tablero(ganador_tablero)
+
+        # Mini-juego 2: decidir quién empieza
+        self.definir_turno()
+
+        # Elegir posiciones iniciales
+        self.elegir_posiciones_iniciales()
+
+        # Juego principal
+        print("¡Comienza el juego principal!\n")
+        max_turnos = 500
+        while max_turnos > 0:
+            self.tablero.imprimir(self.jugador1.posicion, self.jugador2.posicion)
+            jugador = self.turno_actual
+            print(f"Turno de {jugador.nombre}")
+            input("Presione ENTER para mover...")
+            sigue = jugador.mover(self.tablero)
+            if not sigue:
+                ganador = self.jugador1 if jugador == self.jugador2 else self.jugador2
+                print(f"\n💥 {jugador.nombre} salió del tablero.")
+                print(f"🏆 {ganador.nombre} gana la partida 🏆")
+                break
+            self.alternar_turno()
+            max_turnos -= 1
+
+        if max_turnos == 0:
+            print("Empate técnico: límite de turnos alcanzado.")
+
+# -------------------------------
+# Programa principal
+# -------------------------------
+if __name__ == "__main__":
+    juego = JuegoRepulsor()
+    juego.jugar()
