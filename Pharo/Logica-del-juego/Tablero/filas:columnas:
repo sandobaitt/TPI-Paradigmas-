@@ -1,0 +1,14 @@
+filas: f columnas: c
+    filas := f.
+    columnas := c.
+    casillas := Array new: filas.
+
+    1 to: filas do: [ :i |
+        casillas at: i put: (Array new: columnas).
+        1 to: columnas do: [ :j |
+            (casillas at: i) at: j put: (
+                Casilla new
+                    fila: i columna: j direccion: #arriba).
+        ] ].
+
+    ^ self
