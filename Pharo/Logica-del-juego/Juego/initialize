@@ -1,0 +1,30 @@
+initialize
+    | filas columnas filasNum columnasNum |
+
+    super initialize.
+
+    "Pedimos los tamaños al usuario"
+    filas := UIManager default 
+        request: 'Ingrese la cantidad de filas (por defecto 8):' 
+        initialAnswer: '8'.
+
+    columnas := UIManager default 
+        request: 'Ingrese la cantidad de columnas (por defecto 8):' 
+        initialAnswer: '8'.
+
+    "Convertimos las entradas a número y validamos"
+    filasNum := filas asNumber ifNil: [ 8 ].
+    columnasNum := columnas asNumber ifNil: [ 8 ].
+
+    (filasNum < 1 or: [ columnasNum < 1 ]) ifTrue: [
+        filasNum := 8.
+        columnasNum := 8.
+    ].
+
+    "Creamos el tablero con el tamaño final"
+    tablero := Tablero new.
+    tablero filas: filasNum columnas: columnasNum.
+
+    jugadores := OrderedCollection new.
+    jugadorActual := nil.
+    enCurso := false.
