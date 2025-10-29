@@ -1,0 +1,3 @@
+posicion: unPunto
+	"setter"
+    posicion := unPunto
