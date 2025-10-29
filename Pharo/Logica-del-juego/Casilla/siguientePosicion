@@ -1,0 +1,11 @@
+siguientePosicion
+    | fila col |
+    fila := posicion x.
+    col := posicion y.
+
+    direccion = #arriba     ifTrue: [ ^ (fila - 1) @ col ].
+    direccion = #abajo      ifTrue: [ ^ (fila + 1) @ col ].
+    direccion = #izquierda  ifTrue: [ ^ fila @ (col - 1) ].
+    direccion = #derecha    ifTrue: [ ^ fila @ (col + 1) ].
+
+    ^ posicion "Devuelve un punto con la posicion del destino"
