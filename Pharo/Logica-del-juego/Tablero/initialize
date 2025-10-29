@@ -1,0 +1,5 @@
+initialize
+    super initialize.
+    filas := 0.
+    columnas := 0.
+    casillas := #().
