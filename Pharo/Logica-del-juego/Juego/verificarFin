@@ -1,0 +1,13 @@
+verificarFin
+    | activos |
+    activos := jugadores select: [ :j | j estaActivo ].
+
+    (activos size <= 1)
+        ifTrue: [
+            enCurso := false.
+            Transcript show: 'Ganador: ';
+                show: (activos isEmpty
+                    ifTrue: [ 'nadie (todos afuera)' ]
+                    ifFalse: [ activos first nombre ]);
+                cr.
+        ].
