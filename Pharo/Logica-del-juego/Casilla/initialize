@@ -1,0 +1,4 @@
+initialize
+    super initialize.
+    posicion := 1 @ 1.
+    direccion := #arriba.
