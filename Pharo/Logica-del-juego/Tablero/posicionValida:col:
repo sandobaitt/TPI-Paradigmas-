@@ -1,0 +1,4 @@
+"Devuelve booleano si la posicion esta en el tablero o si el jugador esta dentro"
+posicionValida: unaFila col: unaColumna
+    ^ (unaFila >= 1 and: [ unaFila <= filas ])
+        and: [ unaColumna >= 1 and: [ unaColumna <= columnas ] ]
