@@ -1,0 +1,13 @@
+rotar90
+	"Rota la dirección 90 grados en el sentido de las agujas del reloj"
+   "direccion es un diccionario clave - valor"
+	"Segun la clave de direccion se asocia un valor que lo rota en 90 grados"
+    | rotaciones |
+    rotaciones := {
+        #arriba -> #derecha.
+        #derecha -> #abajo.
+        #abajo -> #izquierda.
+        #izquierda -> #arriba
+    } asDictionary.
+
+    direccion := rotaciones at: direccion ifAbsent: [ direccion ].
