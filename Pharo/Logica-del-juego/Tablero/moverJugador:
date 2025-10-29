@@ -1,0 +1,33 @@
+moverJugador: unJugador
+    "Mueve al jugador un paso según la dirección de la casilla actual.
+     1. Mira la casilla actual.
+     2. Calcula la siguiente posición.
+     3. Rota la flecha de la casilla que abandona.
+     4. Si la nueva posición está fuera del tablero, el jugador se desactiva.
+     5. Si no, actualiza su posición."
+    
+	 | filaActual colActual casillaActual siguientePos filaSig colSig |
+
+    filaActual := unJugador posicionActual x.
+    colActual := unJugador posicionActual y.
+
+    casillaActual := self casilla: filaActual col: colActual.
+
+    siguientePos := casillaActual siguientePosicion.
+
+    casillaActual rotar90.
+
+    filaSig := siguientePos x.
+    colSig := siguientePos y.
+
+    (self posicionValida: filaSig col: colSig)
+        ifFalse: [
+            unJugador desactivar.
+            Transcript
+                nextPutAll: unJugador nombre;
+                nextPutAll: ' salió del tablero.';
+                cr.
+            ^ self
+        ].
+
+    unJugador posicionActual: siguientePos.
