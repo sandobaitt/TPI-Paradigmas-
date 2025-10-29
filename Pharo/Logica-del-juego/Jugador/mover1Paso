@@ -1,0 +1,6 @@
+mover1Paso
+    "Le pide al tablero que lo mueva una casilla, siguiendo las reglas del tablero."
+    (self estaActivo)
+        ifTrue: [
+            tablero moverJugador: self
+        ].
