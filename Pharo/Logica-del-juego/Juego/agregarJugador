@@ -1,0 +1,6 @@
+agregarJugador: unJugador
+    "Agrega un jugador a la colección de jugadores del juego.
+    Si todavía no había jugadorActual, lo asigna."
+
+    jugadores add: unJugador.
+    jugadorActual ifNil: [ jugadorActual := unJugador ].
