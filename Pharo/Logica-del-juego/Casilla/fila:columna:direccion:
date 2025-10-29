@@ -1,0 +1,4 @@
+fila: unaFila columna: unaColumna direccion: unaDireccion
+    posicion := unaFila @ unaColumna.
+    direccion := unaDireccion.
+    ^ self.
