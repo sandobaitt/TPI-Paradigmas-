@@ -1,0 +1,12 @@
+jugarTurno
+    "Hace que el jugador actual juegue su movimiento, luego pasa al siguiente jugador
+    y después verifica si el juego terminó."
+
+     (jugadorActual estaActivo)
+        ifTrue: [
+            jugadorActual mover1Paso
+        ].
+
+    jugadorActual := self siguienteJugador.
+
+    self verificarFin.
