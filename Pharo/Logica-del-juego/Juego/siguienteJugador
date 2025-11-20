@@ -1,6 +1,0 @@
-siguienteJugador
-    | idx |
-    idx := jugadores indexOf: jugadorActual.
-    idx = jugadores size
-        ifTrue: [ ^ jugadores first ] "si era el último, vuelve al primero"
-        ifFalse: [ ^ jugadores at: idx + 1 ].

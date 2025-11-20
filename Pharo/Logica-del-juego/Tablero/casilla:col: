@@ -1,3 +1,0 @@
-"Usa el jugador o juego para moverse"
-casilla: unaFila col: unaColumna
-    ^ (casillas at: unaFila) at: unaColumna "Devuelve la casilla en esas posiciones"

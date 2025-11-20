@@ -1,3 +1,0 @@
-posicion
-	"getter"
-    ^ posicion
