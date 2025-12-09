@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "2025-11-30T21:42:23.860462-03:00",
+	"super" : "Pantalla",
+	"category" : "TPI-Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"boton_iniciar",
+		"boton_explicacion",
+		"boton_salir"
+	],
+	"name" : "PantallaInicial",
+	"type" : "normal"
+}

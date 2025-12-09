@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "2025-11-19T17:49:29.252052-03:00",
+	"super" : "Pantalla",
+	"category" : "TPI-Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"num_jugador_titulo",
+		"siguiente_accion",
+		"caja_txt",
+		"boton_sig",
+		"boton_retroceder"
+	],
+	"name" : "PantallaInfoJugador",
+	"type" : "normal"
+}

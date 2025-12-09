@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "TPI-Elementos",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"filas",
+		"columnas",
+		"celdas"
+	],
+	"name" : "Tablero",
+	"type" : "normal"
+}

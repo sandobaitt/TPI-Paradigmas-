@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "2025-11-30T21:38:10.577279-03:00",
+	"super" : "Pantalla",
+	"category" : "TPI-Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"explicacion"
+	],
+	"name" : "ExplicacionJuego",
+	"type" : "normal"
+}

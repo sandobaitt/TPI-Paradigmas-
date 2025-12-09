@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "2025-11-19T17:56:28.058531-03:00",
+	"super" : "SpPresenter",
+	"category" : "TPI-Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "Pantalla",
+	"type" : "normal"
+}

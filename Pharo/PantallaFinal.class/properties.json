@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "Pantalla",
+	"category" : "TPI-Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"boton_volver"
+	],
+	"name" : "PantallaFinal",
+	"type" : "normal"
+}

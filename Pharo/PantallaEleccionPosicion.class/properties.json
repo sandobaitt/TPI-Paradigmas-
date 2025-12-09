@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "Pantalla",
+	"category" : "TPI-Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"jugador_a_posicionar",
+		"siguiente_accion",
+		"caja_pos_x",
+		"caja_pos_y",
+		"boton_sig"
+	],
+	"name" : "PantallaEleccionPosicion",
+	"type" : "normal"
+}

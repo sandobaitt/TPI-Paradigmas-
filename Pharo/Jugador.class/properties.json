@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "2025-11-18T01:20:36.077965-03:00",
+	"super" : "Object",
+	"category" : "TPI-Elementos",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"nombre",
+		"vidas",
+		"posicion"
+	],
+	"name" : "Jugador",
+	"type" : "normal"
+}

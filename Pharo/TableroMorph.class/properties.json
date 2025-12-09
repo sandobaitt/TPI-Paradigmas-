@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Morph",
+	"category" : "TPI-Elementos",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"tablero",
+		"juego"
+	],
+	"name" : "TableroMorph",
+	"type" : "normal"
+}

@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "",
+	"super" : "Pantalla",
+	"category" : "TPI-Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"tableroMorphPresenter",
+		"tablaJugadores",
+		"botonPaso",
+		"botonFinal",
+		"juego",
+		"juegoTerminado"
+	],
+	"name" : "PantallaTablero",
+	"type" : "normal"
+}

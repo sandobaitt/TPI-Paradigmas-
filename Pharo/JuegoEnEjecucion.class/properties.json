@@ -1,0 +1,23 @@
+{
+	"commentStamp" : "2025-11-17T20:00:21.865213-03:00",
+	"super" : "Object",
+	"category" : "TPI-Elementos",
+	"classinstvars" : [
+		"instancia_actual"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"juega_cpu",
+		"jugador1",
+		"jugador2",
+		"tablero",
+		"ganador",
+		"juegoTerminado",
+		"tamanioTablero",
+		"turnoJugador1",
+		"pantallaTablero"
+	],
+	"name" : "JuegoEnEjecucion",
+	"type" : "normal"
+}

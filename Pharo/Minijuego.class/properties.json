@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "TPI-Elementos",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"numeroSecreto",
+		"numeroJugador1",
+		"numeroJugador2"
+	],
+	"name" : "Minijuego",
+	"type" : "normal"
+}
