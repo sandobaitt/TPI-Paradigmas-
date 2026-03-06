@@ -26,15 +26,34 @@ Para evitar que la dinámica sea previsible desde el inicio, incorporamos las si
 El escenario ha sido modelado siguiendo el **Paradigma Orientado a Objetos** y codificado en dos lenguajes:
 
 ### 🧊 Smalltalk (Pharo)
-La versión principal y definitiva. Cuenta con una interfaz visual robusta construida sobre el framework Spec.
+La versión principal y totalmente funcional desarrollada en el entorno Pharo. 
 
-**Cómo importar y probar el juego en Pharo:**
-> *(Espacio reservado: Explicar aquí paso a paso cómo cargar el archivo .st o conectar con Iceberg y qué comando ejecutar en el Playground para abrir el menú principal).*
+**Cómo importar y probar el juego:**
+
+Para jugar, necesitas tener instalado Pharo (recomendado Pharo 13) y seguir estos pasos para cargar el código fuente en tu entorno:
+
+**1. Clonar el repositorio en Iceberg:**
+* Abrí Pharo y dirigite a **Iceberg** (desde el World Menu o presionando `Ctrl + O` y luego `I`).
+* Hacé clic en el botón **Add** (arriba a la izquierda) y seleccioná **Clone from github.com**.
+* Ingresá el dueño y el nombre del repositorio (en este caso `sandobaitt/TPI-Paradigmas-`), o pegá la URL HTTPS del repositorio.
+* Presioná **OK**.
+
+**2. Cargar el paquete en la imagen:**
+* En la lista de Iceberg, hacé doble clic sobre el repositorio recién clonado.
+* Dirigite a la pestaña **Packages**.
+* Vas a ver el paquete del juego con el estado *Not loaded*. Hacé clic derecho sobre él y seleccioná **Load**. 
+* El estado cambiará a *Loaded*, lo que significa que el código ya está en tu sistema.
+
+**3. Ejecutar el juego:**
+* Abrí un **Playground** (presionando `Ctrl + O` y luego `W`).
+* Escribí el siguiente comando para abrir el menú principal:
+  ```smalltalk
+  PantallaInicial new openWithSpec.
 
 ### 🐍 Python
 Prototipo inicial construido para evaluar la lógica central del funcionamiento, direcciones y rotación antes de migrar al entorno definitivo.
 * **Ubicación:** `/Python`
-* **Cómo ejecutar:** `python main.py`
+* **Cómo ejecutar:** `SDR Python.py`
 
 ---
 
